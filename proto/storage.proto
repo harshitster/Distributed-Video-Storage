@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package tritontube;
+
+option go_package = "internal/proto;proto";
+
+service Storage {
+  rpc Upload(stream FileChunk) returns (UploadAck);
+  rpc Download(FileRequest) returns (stream FileChunk);
+  rpc ListVideos(ListVideosRequest) returns (ListVideosResponse);
+  rpc ListVideoFiles(ListVideoFilesRequest) returns (ListVideoFilesResponse);
+  rpc DeleteFiles(BatchDeleteRequest) returns (DeleteFileResponse);
+}
+
+message FileChunk {
+  string video_id = 1;
+  string filename = 2;
+  bytes data = 3;
+}
+
+message FileRequest {
+  string video_id = 1;
+  string filename = 2;
+}
+
+message UploadAck {
+  bool success = 1;
+}
+
+message ListVideosRequest {}
+
+message ListVideosResponse {
+  repeated string video_ids = 1;
+}
+
+message ListVideoFilesRequest {
+  string video_id = 1;
+}
+
+message ListVideoFilesResponse {
+  repeated string filenames = 1;
+}
+
+message BatchDeleteRequest {
+  string video_id = 1;
+  repeated string filenames = 2;
+}
+
+message DeleteFileResponse {
+  bool success = 1;
+}
