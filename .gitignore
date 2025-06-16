@@ -1,4 +1,4 @@
-etc*
+etcd-*
 /storage/
 commands.txt
 .DS_Store
