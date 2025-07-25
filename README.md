@@ -1,5 +1,6 @@
 # Distributed-Video-Storage
 
+```mermaid
 graph TB
     %% Client Layer
     Client[Client Browser]
