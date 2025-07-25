@@ -148,13 +148,14 @@ graph TB
 
 ### Tech Stack
 
-Backend: Go with gRPC and HTTP servers
-Consensus: etcd with RAFT protocol
-Video Processing: FFmpeg for MPEG-DASH conversion
-Communication: Protocol Buffers for service communication
-Hashing: SHA-256 for consistent distribution
+- Backend: Go with gRPC and HTTP servers
+- Consensus: etcd with RAFT protocol
+- Video Processing: FFmpeg for MPEG-DASH conversion
+- Communication: Protocol Buffers for service communication
+- Hashing: SHA-256 for consistent distribution
 
 ## Project Structure
+```
 ├── cmd/
 │   ├── admin/          # Admin CLI
 │   ├── storage/        # Storage server
@@ -164,3 +165,4 @@ Hashing: SHA-256 for consistent distribution
 │   ├── storage/       # Storage implementation
 │   └── web/          # Web server logic
 └── proto/             # Protocol buffer files
+```
