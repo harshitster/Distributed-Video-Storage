@@ -1,7 +1,7 @@
 # Distributed-Video-Storage
 
 ## Architecture Overview
-TritonTube is built with a microservices architecture featuring distributed storage, consistent hashing, and RAFT consensus for fault tolerance.
+The system is built with a microservices architecture featuring distributed storage, consistent hashing, and RAFT consensus for fault tolerance.
 
 ```mermaid
 graph TB
