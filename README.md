@@ -1,7 +1,23 @@
-# Distributed-Video-Storage
+# StreamGrid
 
-## Architecture Overview
-The system is built with a microservices architecture featuring distributed storage, consistent hashing, and RAFT consensus for fault tolerance.
+A distributed video storage and streaming system implementing consistent hashing, RAFT consensus, and microservices architecture. Features fault-tolerant metadata storage, automatic load balancing, and adaptive video streaming.
+
+## Overview
+This system demonstrates a scalable approach to video storage using distributed computing principles. Built with Go, etcd, and gRPC, it handles video upload, processing, and streaming across multiple storage nodes. The architecture showcases practical implementations of consistent hashing for load distribution, RAFT consensus for fault tolerance, and microservices communication patterns.
+
+### Goals:
+- Implement consistent hashing for load distribution
+- Use RAFT consensus via etcd for metadata storage
+- Build microservices with gRPC communication
+- Handle video processing with FFmpeg
+- Design fault-tolerant distributed systems
+
+## Architecture
+The system uses a microservices approach with three main layers:
+
+1. Web Server: HTTP API and gRPC interface for client requests
+2. Metadata Storage: etcd cluster for storing video information
+3. Content Storage: Distributed storage nodes using consistent hashing
 
 ```mermaid
 graph TB
@@ -109,15 +125,15 @@ graph TB
 ## Key Components
 ### Web Server
 
-- HTTP API: Handles video upload, streaming, and web interface
-- gRPC Interface: Admin operations for cluster management
-- Service Layer: Abstracts metadata and content storage
+- HTTP API: Upload videos, retrieve video lists, serve streaming content
+- gRPC Interface: Admin operations like adding/removing storage nodes
+- Service Layer: Abstracts metadata and content storage implementations
 
 ### Metadata Storage (etcd)
 
-- 3-Node Cluster: RAFT consensus for fault tolerance
-- Leader Election: Automatic failover on node failures
-- Consistent State: Video metadata and cluster information
+- 3-Node Cluster: Uses RAFT consensus for consistent metadata storage
+- Fault Tolerance: Continues operating if one node fails
+- Strong Consistency: Ensures all nodes agree on video metadata
 
 ### Content Storage
 
